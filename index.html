@@ -13,6 +13,20 @@
 </head>
 <body>
 
+<div id="preloader" aria-hidden="true">
+  <svg class="preloader__mark" viewBox="0 0 32 32" fill="none">
+    <path class="preloader__heart" d="M16 27S5.5 20.4 2 13.6C.5 8.7 3.4 4 8.3 4c2.9 0 5.2 1.6 7.7 4.6C18.5 5.6 20.8 4 23.7 4 28.6 4 31.5 8.7 30 13.6 26.5 20.4 16 27 16 27z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+  </svg>
+</div>
+
+<svg class="grain-overlay" aria-hidden="true">
+  <filter id="grainFilter">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"></feTurbulence>
+    <feColorMatrix type="saturate" values="0"></feColorMatrix>
+  </filter>
+  <rect width="100%" height="100%" filter="url(#grainFilter)"></rect>
+</svg>
+
 <div id="scroll-progress"></div>
 <div id="cursor-dot"></div>
 <div id="cursor-ring"></div>
@@ -28,10 +42,12 @@
     <span>Yes, Chloe.</span>
   </div>
   <ul class="nav__links">
-    <li><a href="#vision">Five Years</a></li>
-    <li><a href="#case">The Case</a></li>
-    <li><a href="#rules">House Rules</a></li>
-    <li><a href="#closing">Closing</a></li>
+    <li><a href="#vision" data-nav-link>Five Years</a></li>
+    <li><a href="#case" data-nav-link>The Case</a></li>
+    <li><a href="#rules" data-nav-link>House Rules</a></li>
+    <li><a href="#verdict" data-nav-link>Dad's Verdict</a></li>
+    <li><a href="#closing" data-nav-link>Closing</a></li>
+    <span class="nav__pill" aria-hidden="true"></span>
   </ul>
   <button class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">
     <i data-lucide="sun" class="icon-sun"></i>
@@ -44,17 +60,27 @@
   <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="hero__grain"></div>
+    <div class="hero__aurora" aria-hidden="true">
+      <span class="blob blob--1"></span>
+      <span class="blob blob--2"></span>
+      <span class="blob blob--3"></span>
+    </div>
+    <canvas id="ambient-canvas" aria-hidden="true"></canvas>
     <div class="wrap hero__content">
       <p class="eyebrow">A formal reply to Chloe's Roommate Application &amp; Household Compatibility Assessment</p>
-      <h1>Yes, Chloe. <em>A thousand times, yes.</em></h1>
-      <p class="hero__subtitle">You sent me a Google Form. This felt like it deserved more than a checkbox — so I built you a website instead. Every question, answered. A few things you didn't ask, too.</p>
-      <div class="hero__meta">
+      <h1 id="hero-title" data-split>Yes, Chloe. <em>A thousand times, yes.</em></h1>
+      <p class="hero__subtitle reveal">You sent me a Google Form. This felt like it deserved more than a checkbox — so I built you a website instead. Every question, answered. A few things you didn't ask, too.</p>
+      <div class="hero__meta reveal">
         <span>Applicant: <strong>Garren Meisman</strong></span>
         <span>Requested move-in: <strong>August 29, 2026</strong></span>
         <span>Status: <strong>Enthusiastically submitted</strong></span>
       </div>
-      <div class="hero__cta">
-        <a href="#vision" class="btn btn--primary">Read my case<i data-lucide="arrow-down" style="width:18px;height:18px"></i></a>
+      <div class="hero__cta reveal">
+        <a href="#vision" class="btn btn--primary" data-magnetic>Read my case<i data-lucide="arrow-down" style="width:18px;height:18px"></i></a>
+      </div>
+      <div class="hero__polaroid reveal" data-tilt data-tilt-max="8">
+        <img src="assets/hero-dance.webp" alt="Illustrated silhouettes of a couple dancing together in a warm, sunlit doorway" loading="eager" width="1376" height="768" />
+        <span class="hero__polaroid-caption">Exhibit A: the dance parties in question</span>
       </div>
       <div class="scroll-cue">
         <span>Scroll</span>
@@ -71,27 +97,27 @@
         <h2 style="margin-inline:auto;">A few things about your prospective roommate</h2>
       </div>
       <div class="facts-grid reveal-stagger">
-        <div class="fact-card">
+        <div class="fact-card" data-tilt>
           <div class="fact-label">Currently studying</div>
           <div class="fact-value">Computer Science</div>
         </div>
-        <div class="fact-card">
+        <div class="fact-card" data-tilt>
           <div class="fact-label">Fluent in</div>
           <div class="fact-value">Python (mostly)</div>
         </div>
-        <div class="fact-card">
+        <div class="fact-card" data-tilt>
           <div class="fact-label">Training for</div>
           <div class="fact-value">A 5K, eventually</div>
         </div>
-        <div class="fact-card">
+        <div class="fact-card" data-tilt>
           <div class="fact-label">Field research conducted at</div>
           <div class="fact-value">Every gym in Utah</div>
         </div>
-        <div class="fact-card">
+        <div class="fact-card" data-tilt>
           <div class="fact-label">Currently reading</div>
           <div class="fact-value">Fantasy &amp; sci-fi, always</div>
         </div>
-        <div class="fact-card">
+        <div class="fact-card" data-tilt>
           <div class="fact-label">Occupation</div>
           <div class="fact-value">Current tenant's biggest fan</div>
         </div>
@@ -343,6 +369,12 @@
       </div>
       <div class="meter reveal">
         <svg viewBox="0 0 240 240">
+          <defs>
+            <linearGradient id="meterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="var(--color-primary)"></stop>
+              <stop offset="100%" stop-color="var(--color-gold)"></stop>
+            </linearGradient>
+          </defs>
           <circle class="meter__track" cx="120" cy="120" r="110"></circle>
           <circle class="meter__fill" cx="120" cy="120" r="110"></circle>
         </svg>
@@ -363,10 +395,10 @@
         <h2 style="margin-inline:auto;">Counting down to move-in day</h2>
       </div>
       <div class="countdown reveal">
-        <div class="countdown__unit"><strong id="cd-days">00</strong><span>Days</span></div>
-        <div class="countdown__unit"><strong id="cd-hours">00</strong><span>Hours</span></div>
-        <div class="countdown__unit"><strong id="cd-minutes">00</strong><span>Minutes</span></div>
-        <div class="countdown__unit"><strong id="cd-seconds">00</strong><span>Seconds</span></div>
+        <div class="countdown__unit" data-tilt><strong id="cd-days">00</strong><span>Days</span></div>
+        <div class="countdown__unit" data-tilt><strong id="cd-hours">00</strong><span>Hours</span></div>
+        <div class="countdown__unit" data-tilt><strong id="cd-minutes">00</strong><span>Minutes</span></div>
+        <div class="countdown__unit" data-tilt><strong id="cd-seconds">00</strong><span>Seconds</span></div>
       </div>
       <p class="countdown-note reveal" id="countdown-note">Requested date, gladly accepted — no counteroffer needed.</p>
     </div>
@@ -392,37 +424,153 @@
         <h2 style="margin-inline:auto;">Cheerfully accepted, every clause</h2>
       </div>
       <div class="terms-list reveal-stagger">
-        <div class="terms-item">
+        <div class="terms-item" data-tilt data-tilt-max="4">
           <div class="terms-item__label">Rent</div>
           <div class="terms-item__title">$1,000/month, plus 50% of shared utilities</div>
           <div class="terms-item__body">Accepted as proposed. No counteroffer — the number was fair the first time I read it.</div>
         </div>
-        <div class="terms-item">
+        <div class="terms-item" data-tilt data-tilt-max="4">
           <div class="terms-item__label">Screening tool</div>
           <div class="terms-item__title">This is preliminary, not an ownership interest</div>
           <div class="terms-item__body">Understood completely — this website is my answer to a screening form, not a deed.</div>
         </div>
-        <div class="terms-item">
+        <div class="terms-item" data-tilt data-tilt-max="4">
           <div class="terms-item__label">Written agreement</div>
           <div class="terms-item__title">A separate lease/roommate agreement governs the details</div>
           <div class="terms-item__body">Ready whenever you are — pen in hand.</div>
         </div>
-        <div class="terms-item">
+        <div class="terms-item" data-tilt data-tilt-max="4">
           <div class="terms-item__label">Ownership</div>
           <div class="terms-item__title">The homeowner retains ownership and control</div>
           <div class="terms-item__body">Naturally. It's your house, and I knew that long before the form told me.</div>
         </div>
-        <div class="terms-item">
+        <div class="terms-item" data-tilt data-tilt-max="4">
           <div class="terms-item__label">Modifications</div>
           <div class="terms-item__title">Prior approval required for anything attached to the property</div>
           <div class="terms-item__body">Every time — including hanging a single picture frame.</div>
         </div>
-        <div class="terms-item">
+        <div class="terms-item" data-tilt data-tilt-max="4">
           <div class="terms-item__label">The romance clause</div>
           <div class="terms-item__title">Being romantically involved doesn't change the terms of tenancy</div>
           <div class="terms-item__body">Wouldn't want it any other way. You being both my landlord and my favorite person is a bonus, not a shortcut.</div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ DAD'S VERDICT ============ -->
+  <section id="verdict">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">A character witness nobody asked for</p>
+        <h2 style="margin-inline:auto;">Even the future father-in-law signed off</h2>
+        <p>Chloe's dad heard there was a "formal letter of recommendation" involved and, unprompted, submitted his own. It is, in his words, a background check. It is, in reality, the funniest legal document I've ever been cleared by.</p>
+      </div>
+
+      <div class="dossier reveal">
+        <div class="dossier__stamp" aria-hidden="true">
+          <svg viewBox="0 0 160 160">
+            <circle cx="80" cy="80" r="72" />
+            <circle cx="80" cy="80" r="60" />
+            <path id="stampCurveTop" d="M 22,80 A 58,58 0 0 1 138,80" fill="none" />
+            <path id="stampCurveBottom" d="M 138,84 A 58,58 0 0 1 22,84" fill="none" />
+            <text><textPath href="#stampCurveTop" startOffset="50%" text-anchor="middle">FINAL DECISION</textPath></text>
+            <text class="dossier__stamp-word" x="80" y="92" text-anchor="middle">APPROVED</text>
+            <text><textPath href="#stampCurveBottom" startOffset="50%" text-anchor="middle">NO FURTHER REVIEW</textPath></text>
+          </svg>
+        </div>
+        <div class="dossier__head">
+          <p class="dossier__label-top">Background check &amp; character assessment</p>
+          <h3>Formal Assessment</h3>
+        </div>
+        <div class="dossier__grid">
+          <div class="dossier__row"><span>Applicant</span><strong>Garren Meisman</strong></div>
+          <div class="dossier__row"><span>Character</span><strong class="chip chip--gold">Outstanding</strong></div>
+          <div class="dossier__row"><span>Reliability</span><strong class="chip chip--sage">Proven</strong></div>
+          <div class="dossier__row"><span>Financial risk</span><strong class="chip chip--sage">Low</strong></div>
+          <div class="dossier__row"><span>Property risk</span><strong class="chip chip--sage">Low</strong></div>
+          <div class="dossier__row"><span>Patience</span><strong class="chip chip--gold">Borderline supernatural</strong></div>
+          <div class="dossier__row"><span>Tolerance for Chloe</span><strong class="chip chip--gold">Extensively field-tested</strong></div>
+          <div class="dossier__row"><span>Background check</span><strong class="chip chip--sage">Unnecessary</strong></div>
+          <div class="dossier__row"><span>Security deposit</span><strong>Waive his. Consider doubling yours.</strong></div>
+          <div class="dossier__row"><span>Final recommendation</span><strong class="chip chip--primary">Immediate approval</strong></div>
+        </div>
+      </div>
+
+      <div class="pull-quotes reveal-stagger">
+        <blockquote class="pull-quote">
+          <p>"If I am willing to trust the man with my daughter for the rest of his natural life, I feel reasonably confident he can be trusted with one bedroom and access to a refrigerator."</p>
+        </blockquote>
+        <blockquote class="pull-quote">
+          <p>"His only significant documented lapse in judgment remains choosing to marry you. We continue to monitor that situation closely."</p>
+        </blockquote>
+      </div>
+
+      <details class="letter-toggle reveal">
+        <summary>
+          <span>Read the full letter of recommendation</span>
+          <i data-lucide="chevron-down"></i>
+        </summary>
+        <div class="letterhead">
+          <p>Dear Ms Brew,</p>
+          <p>I understand you have requested a formal letter of recommendation for Garren Meisman, despite the fact that you are already engaged to him and have had years to conduct your own highly invasive background investigation.</p>
+          <p>Nevertheless, I am happy to provide my strongest possible recommendation.</p>
+          <p>After extensive observation, family review, character assessment, and repeated real-world testing, I have determined that Garren is exceptionally qualified for the highly prestigious position of Person Allowed to Live in the Room.</p>
+          <p>Garren is responsible, respectful, hardworking, dependable, intelligent, and trustworthy. He pays his bills, keeps his commitments, handles his responsibilities, and generally functions like a competent adult without requiring a laminated instruction card.</p>
+          <p>More importantly, I would personally trust Garren with:</p>
+          <ul class="letterhead__list">
+            <li>My house</li>
+            <li>My car</li>
+            <li>My money</li>
+            <li>My dog</li>
+            <li>My credit card</li>
+            <li>My passwords, if absolutely necessary</li>
+            <li>An emergency situation</li>
+            <li>Important family decisions</li>
+            <li>The last good piece of steak in the refrigerator</li>
+            <li>And, apparently, my daughter</li>
+          </ul>
+          <p>That last one is the most important.</p>
+          <p>If I am willing to trust the man with my daughter for the rest of his natural life, I feel reasonably confident he can be trusted with one bedroom and access to a refrigerator.</p>
+          <p>In fact, from a risk-management standpoint, the bedroom is substantially less valuable and considerably easier to replace.</p>
+          <p>Garren has also demonstrated extraordinary patience, emotional stability, conflict-management skills, and long-term endurance through his relationship with you.</p>
+          <p>This should not be overlooked.</p>
+          <p>Any man who can date you, survive the evaluation period, propose voluntarily, and then apparently submit supporting documentation just to live in the same house has already exceeded any reasonable standard of character.</p>
+          <p>For purposes of addressing the allegations you will inevitably submit after reading this letter:</p>
+          <p>If Garren leaves a cup on the counter, this does not constitute gross negligence.</p>
+          <p>If he forgets something you mentioned once three weeks ago while he was watching television, this does not establish a pattern of misconduct.</p>
+          <p>If he loads the dishwasher incorrectly according to standards that exist exclusively inside your head, corrective action should begin with verbal counseling.</p>
+          <p>And if your response to any of this is, "Dad, you don't know what he's really like," I would respectfully remind you that I raised you.</p>
+          <p>I know exactly how this works.</p>
+          <p>My formal assessment is therefore as follows:</p>
+          <div class="letterhead__form">
+            <div><span>Applicant:</span> Garren Meisman</div>
+            <div><span>Character:</span> Outstanding</div>
+            <div><span>Reliability:</span> Proven</div>
+            <div><span>Financial Risk:</span> Low</div>
+            <div><span>Property Risk:</span> Low</div>
+            <div><span>Patience:</span> Borderline supernatural</div>
+            <div><span>Tolerance for Chloe:</span> Extensively field-tested</div>
+            <div><span>Background Check:</span> Unnecessary</div>
+            <div><span>Security Deposit:</span> Waive his. Consider doubling yours.</div>
+            <div><span>Final Recommendation:</span> Immediate approval</div>
+          </div>
+          <p>Should you elect to deny his application, please provide the decision in writing along with supporting evidence, witness statements, photographs, three independent references, and a detailed explanation of how a man qualified to marry you somehow failed to qualify for a bedroom.</p>
+          <p>I will personally handle the appeal.</p>
+          <p>In all seriousness, Garren is an exceptional young man. I trust him, respect him, and am genuinely happy that he is becoming part of our family.</p>
+          <p>His only significant documented lapse in judgment remains choosing to marry you.</p>
+          <p>We continue to monitor that situation closely.</p>
+          <p>Application approved. No further review required.</p>
+          <p class="letter__sig">Love,<br>Dad</p>
+          <div class="letterhead__titles">
+            <span>Future Father-in-Law</span>
+            <span>Chief Character Witness</span>
+            <span>Chairman, Garren Meisman Approval Committee</span>
+            <span>Director of Appeals, Complaints, and Unsubstantiated Allegations</span>
+            <span>Final Authority on Chloe-Related Nonsense</span>
+          </div>
+        </div>
+      </details>
     </div>
   </section>
 
@@ -433,11 +581,17 @@
         <p class="eyebrow">Optional final question, answered anyway</p>
         <h2 style="margin-inline:auto;">Is there anything else you'd like the property manager to know?</h2>
       </div>
-      <div class="closing-letter reveal">
-        <p>Just this: I know this started as a form, and I know forms exist because good things still deserve structure. I don't take that lightly — the chart, the rules, the rent, all of it. I read every line, and I meant every checkbox.</p>
-        <p>But underneath the spreadsheet logic of it all is the actual thing I'm excited about: waking up in the same home as you, splitting chores and utilities and terrible morning moods, and building the kind of ordinary days that turn into the five-year vision I wrote above. I don't want to just pass your screening. I want to be someone you're glad said yes.</p>
-        <p>So — hire me, or rather, live with me. I'll bring the chore chart, the three weekly meals, the dance moves, and the headphones for after nine.</p>
-        <p class="letter__sig">— Garren</p>
+      <div class="closing-grid">
+        <div class="closing-letter reveal">
+          <p>Just this: I know this started as a form, and I know forms exist because good things still deserve structure. I don't take that lightly — the chart, the rules, the rent, all of it. I read every line, and I meant every checkbox.</p>
+          <p>But underneath the spreadsheet logic of it all is the actual thing I'm excited about: waking up in the same home as you, splitting chores and utilities and terrible morning moods, and building the kind of ordinary days that turn into the five-year vision I wrote above. I don't want to just pass your screening. I want to be someone you're glad said yes.</p>
+          <p>So — hire me, or rather, live with me. I'll bring the chore chart, the three weekly meals, the dance moves, and the headphones for after nine.</p>
+          <p class="letter__sig">— Garren</p>
+        </div>
+        <div class="closing-polaroid reveal" data-tilt data-tilt-max="7">
+          <img src="assets/closing-home.webp" alt="Illustration of a cozy home glowing at dusk" loading="lazy" width="1376" height="768" />
+          <span class="hero__polaroid-caption">The ordinary days, illustrated</span>
+        </div>
       </div>
       <div class="closing-cta">
         <a href="#hero" class="btn btn--ghost" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to the top</a>
