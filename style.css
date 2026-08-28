@@ -23,9 +23,7 @@ section {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-primary);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-8);
+  display: block;
   margin-bottom: var(--space-16);
 }
 .eyebrow::before {
@@ -34,6 +32,8 @@ section {
   height: 1.5px;
   background: var(--color-primary);
   display: inline-block;
+  margin-right: var(--space-8);
+  margin-bottom: 3px;
 }
 
 h1,
