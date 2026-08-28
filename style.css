@@ -150,6 +150,19 @@ body.cursor-ready #cursor-ring {
   width: 26px;
   height: 26px;
   color: var(--color-primary);
+  transition: transform 250ms var(--ease-soft);
+}
+.nav__brand:hover svg {
+  animation: heartbeat 900ms var(--ease-soft);
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.22); }
+  40% { transform: scale(0.96); }
+  60% { transform: scale(1.14); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav__brand:hover svg { animation: none; }
 }
 .nav__links {
   display: none;
@@ -273,6 +286,9 @@ body.cursor-ready #cursor-ring {
 @keyframes bob {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(6px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue svg { animation: none; }
 }
 
 /* ===== Buttons ===== */
@@ -580,6 +596,12 @@ body.cursor-ready #cursor-ring {
   background: var(--color-surface);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-md);
+  transition: box-shadow 300ms var(--ease-soft), border-color 300ms var(--ease-soft), transform 300ms var(--ease-soft);
+}
+.policy-item:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary-tint);
+  transform: translateY(-2px);
 }
 .policy-item__check {
   width: 28px;
@@ -608,6 +630,9 @@ body.cursor-ready #cursor-ring {
 .policy-item--highlight {
   border-color: var(--color-gold);
   background: var(--color-gold-tint);
+}
+.policy-item--highlight:hover {
+  border-color: var(--color-gold);
 }
 .policy-item--highlight .policy-item__check {
   background: var(--color-gold);
@@ -968,9 +993,28 @@ footer a {
   box-shadow: var(--shadow-lg);
   transform: rotate(-2deg);
 }
-.hero__polaroid img {
+.hero__polaroid {
+  transition: box-shadow 400ms var(--ease-soft);
+}
+.hero__polaroid:hover {
+  box-shadow: var(--shadow-lg), 0 24px 48px -12px color-mix(in oklab, var(--color-primary) 25%, transparent);
+}
+.hero__polaroid .polaroid-frame,
+.closing-polaroid .polaroid-frame {
+  overflow: hidden;
+  border-radius: calc(var(--radius-md) - 6px);
+  display: block;
+}
+.hero__polaroid img,
+.closing-polaroid img {
   border-radius: calc(var(--radius-md) - 6px);
   width: 100%;
+  display: block;
+  transition: transform 600ms var(--ease-soft);
+}
+.hero__polaroid:hover img,
+.closing-polaroid:hover img {
+  transform: scale(1.045);
 }
 .hero__polaroid-caption {
   display: block;
@@ -1005,7 +1049,40 @@ footer a {
 [data-tilt] {
   transform-style: preserve-3d;
   will-change: transform;
-  transition: transform 400ms var(--ease-soft), box-shadow 400ms var(--ease-soft);
+  transition: transform 400ms var(--ease-soft), box-shadow 400ms var(--ease-soft), border-color 400ms var(--ease-soft);
+}
+.fact-card[data-tilt]:hover,
+.terms-item[data-tilt]:hover,
+.countdown__unit[data-tilt]:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-tint);
+}
+
+/* ---- Button sheen sweep ---- */
+.btn--primary {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn--primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.35) 48%, transparent 66%);
+  transform: translateX(-120%);
+  transition: transform 650ms var(--ease-out-expo);
+  z-index: 1;
+  pointer-events: none;
+}
+.btn--primary:hover::before {
+  transform: translateX(120%);
+}
+.btn--primary > * {
+  position: relative;
+  z-index: 2;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn--primary::before { display: none; }
 }
 
 /* ---- Nav scrollspy pill + scrolled state ---- */
@@ -1084,20 +1161,21 @@ footer a {
 }
 .dossier__row {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--space-12);
-  padding-bottom: var(--space-12);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-8);
+  padding-bottom: var(--space-16);
   border-bottom: 1px dashed var(--color-line);
 }
 .dossier__row span {
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   color: var(--color-text-muted);
   font-weight: 600;
-  flex-shrink: 0;
 }
 .dossier__row strong {
-  text-align: right;
+  text-align: left;
   color: var(--color-ink);
   font-weight: 600;
   font-size: var(--text-sm);
@@ -1110,6 +1188,7 @@ footer a {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 .chip--sage {
   background: var(--color-sage-tint);
@@ -1342,9 +1421,11 @@ footer a {
   max-width: 380px;
   margin-inline: auto;
 }
-.closing-polaroid img {
-  border-radius: calc(var(--radius-md) - 6px);
-  width: 100%;
+.closing-polaroid {
+  transition: box-shadow 400ms var(--ease-soft);
+}
+.closing-polaroid:hover {
+  box-shadow: var(--shadow-lg), 0 24px 48px -12px color-mix(in oklab, var(--color-gold) 25%, transparent);
 }
 .closing-polaroid .hero__polaroid-caption {
   color: var(--color-text-muted);
