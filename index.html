@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Yes, Chloe. — Garren's Reply</title>
+<meta name="description" content="Garren's interactive, heartfelt reply to Chloe's Roommate Application & Household Compatibility Assessment." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23c1502f' d='M16 27s-10.5-6.6-14-13.4C.5 8.7 3.4 4 8.3 4c2.9 0 5.2 1.6 7.7 4.6C18.5 5.6 20.8 4 23.7 4 28.6 4 31.5 8.7 30 13.6 26.5 20.4 16 27 16 27z'/%3E%3Cpath fill='%23faf4ea' d='M14.5 12.5h3v3.2h3.2v3h-3.2v3.3h-3v-3.3h-3.2v-3h3.2z'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="base.css" />
+<link rel="stylesheet" href="tokens.css" />
+<link rel="stylesheet" href="style.css" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<canvas id="confetti-canvas"></canvas>
+<div class="toast" id="toast"></div>
+
+<nav class="nav">
+  <div class="nav__brand" aria-label="Yes, Chloe. site mark">
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path d="M16 27S5.5 20.4 2 13.6C.5 8.7 3.4 4 8.3 4c2.9 0 5.2 1.6 7.7 4.6C18.5 5.6 20.8 4 23.7 4 28.6 4 31.5 8.7 30 13.6 26.5 20.4 16 27 16 27z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M12.7 13.5h2.3v-2.4h2v2.4h2.3v2h-2.3v2.4h-2v-2.4h-2.3z" fill="currentColor"/>
+    </svg>
+    <span>Yes, Chloe.</span>
+  </div>
+  <ul class="nav__links">
+    <li><a href="#vision">Five Years</a></li>
+    <li><a href="#case">The Case</a></li>
+    <li><a href="#rules">House Rules</a></li>
+    <li><a href="#closing">Closing</a></li>
+  </ul>
+  <button class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">
+    <i data-lucide="sun" class="icon-sun"></i>
+    <i data-lucide="moon" class="icon-moon"></i>
+  </button>
+</nav>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero__grain"></div>
+    <div class="wrap hero__content">
+      <p class="eyebrow">A formal reply to Chloe's Roommate Application &amp; Household Compatibility Assessment</p>
+      <h1>Yes, Chloe. <em>A thousand times, yes.</em></h1>
+      <p class="hero__subtitle">You sent me a Google Form. This felt like it deserved more than a checkbox — so I built you a website instead. Every question, answered. A few things you didn't ask, too.</p>
+      <div class="hero__meta">
+        <span>Applicant: <strong>Garren Meisman</strong></span>
+        <span>Requested move-in: <strong>August 29, 2026</strong></span>
+        <span>Status: <strong>Enthusiastically submitted</strong></span>
+      </div>
+      <div class="hero__cta">
+        <a href="#vision" class="btn btn--primary">Read my case<i data-lucide="arrow-down" style="width:18px;height:18px"></i></a>
+      </div>
+      <div class="scroll-cue">
+        <span>Scroll</span>
+        <i data-lucide="chevron-down"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUICK FACTS ============ -->
+  <section class="facts">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Applicant snapshot</p>
+        <h2 style="margin-inline:auto;">A few things about your prospective roommate</h2>
+      </div>
+      <div class="facts-grid reveal-stagger">
+        <div class="fact-card">
+          <div class="fact-label">Currently studying</div>
+          <div class="fact-value">Computer Science</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Fluent in</div>
+          <div class="fact-value">Python (mostly)</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Training for</div>
+          <div class="fact-value">A 5K, eventually</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Field research conducted at</div>
+          <div class="fact-value">Every gym in Utah</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Currently reading</div>
+          <div class="fact-value">Fantasy &amp; sci-fi, always</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Occupation</div>
+          <div class="fact-value">Current tenant's biggest fan</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FIVE YEARS ============ -->
+  <section id="vision">
+    <div class="wrap">
+      <div class="letter__question reveal">
+        <p class="eyebrow">Question 1 of 2</p>
+        <h2 style="margin-inline:auto;">Where do you see yourself in five years?</h2>
+      </div>
+      <div class="letter reveal">
+        <p>I see myself married and living my dream life with the love of my life. I see us working a standard job but working to find a side hustle or business to make extra money and provide more flexibility and opportunities in the future for us and our family. If my wife is interested in having children as well it would make me ecstatic and overjoyed to have our first child (regardless if from our own DNA or adopted).</p>
+        <p>I see myself making her and my family happy as frequently as I possibly can with trips, dance parties, car karaoke, presents, celebrations, good food, etc. I also see myself working somewhere that I feel happy to work at that makes the family great money. This job should be able to support the household alone if my wife decides to follow her dreams/career in another direction or wants a break to be with her family.</p>
+        <p>I also want to be a better disciple of Jesus Christ. I see myself as studious but personable, fun loving but prayerful, and above all I want to always be worthy of his inspiration and gifts.</p>
+        <p class="letter__sig">— Garren</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY GREAT ROOMMATE ============ -->
+  <section id="case">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Question 2 of 2</p>
+        <h2 style="margin-inline:auto;">Why would you be a good roommate?</h2>
+      </div>
+      <div class="tabs reveal">
+        <p class="tabs__intro">"I believe that I would be a fantastic roommate because I already have a deep and vested interest in the current tenant. I want to see you succeed and happy." Here's what that actually looks like, broken down.</p>
+
+        <div class="tabs__nav" role="tablist">
+          <button class="tabs__btn" role="tab" data-tab="panel-comm" aria-selected="true">Communication</button>
+          <button class="tabs__btn" role="tab" data-tab="panel-chores" aria-selected="false">Chores &amp; the Chart</button>
+          <button class="tabs__btn" role="tab" data-tab="panel-meals" aria-selected="false">Meals</button>
+          <button class="tabs__btn" role="tab" data-tab="panel-bonus" aria-selected="false">Bonus Services</button>
+        </div>
+
+        <div class="tabs__panel" id="panel-comm" data-active="true">
+          <div>
+            <h3><i data-lucide="message-circle"></i>Open, honest, and frequent</h3>
+            <p>My goal is to just be open and honest and talk to you as often as possible. If I do that, I don't foresee any problems even if there's a disagreement — because I know communication matters to you, and I know you're happier faster when I talk to you more. So I'll aim to talk frequently, and tell you as soon as I find anything in the house that needs attention.</p>
+          </div>
+          <div class="tabs__visual">
+            <svg viewBox="0 0 200 160" fill="none" aria-hidden="true">
+              <rect x="10" y="20" width="120" height="70" rx="16" stroke="currentColor" stroke-width="3"/>
+              <path d="M40 90l-10 24 30-16" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+              <rect x="70" y="70" width="120" height="70" rx="16" stroke="currentColor" stroke-width="3" opacity="0.4"/>
+              <path d="M160 140l10 20-30-14" stroke="currentColor" stroke-width="3" stroke-linejoin="round" opacity="0.4"/>
+              <circle cx="45" cy="52" r="4" fill="currentColor"/>
+              <circle cx="65" cy="52" r="4" fill="currentColor"/>
+              <circle cx="85" cy="52" r="4" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="tabs__panel" id="panel-chores">
+          <div>
+            <h3><i data-lucide="clipboard-check"></i>Aware, tidy, and accountable</h3>
+            <p>I would be aware of where I am and what I'm leaving behind to make sure I don't leave messes. I'll set alerts and keep a chart on the fridge as a reminder of what still needs to be cleaned and duties that need to be done — chores completed in a reasonable time, to your standards or greater.</p>
+          </div>
+          <div class="tabs__visual">
+            <svg viewBox="0 0 200 160" fill="none" aria-hidden="true">
+              <rect x="55" y="10" width="90" height="130" rx="10" stroke="currentColor" stroke-width="3"/>
+              <rect x="75" y="0" width="50" height="20" rx="6" stroke="currentColor" stroke-width="3"/>
+              <path d="M70 45h60M70 65h60M70 85h40" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              <path d="M20 100l12 12 22-24" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="tabs__panel" id="panel-meals">
+          <div>
+            <h3><i data-lucide="utensils-crossed"></i>Three meals a week, guaranteed</h3>
+            <p>I'm willing to make three meals a week. If I can't make one for whatever reason, I'll either get you food, give you the necessary funds if you're home and I'm not, or have a premade meal ready with prior communication saying so. No silent no-shows at dinner.</p>
+          </div>
+          <div class="tabs__visual">
+            <svg viewBox="0 0 200 160" fill="none" aria-hidden="true">
+              <circle cx="100" cy="80" r="55" stroke="currentColor" stroke-width="3"/>
+              <circle cx="100" cy="80" r="30" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+              <path d="M100 25v18M155 80h-18M100 135v-18M45 80h18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="tabs__panel" id="panel-bonus">
+          <div>
+            <h3><i data-lucide="sparkles"></i>Dancer, masseur, and negotiable extras</h3>
+            <p>I'm also a great dancer and masseur and am happy to provide these services to you from time to time. Other services aren't off the table either — we can discuss those when the time comes.</p>
+          </div>
+          <div class="tabs__visual">
+            <svg viewBox="0 0 200 160" fill="none" aria-hidden="true">
+              <path d="M100 20c-8 0-14 8-14 16 0 10 8 14 14 22 6-8 14-12 14-22 0-8-6-16-14-16z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M70 90c10-14 50-14 60 0M60 130c14-10 66-10 80 0" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="100" cy="80" r="4" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CHORE CHART ============ -->
+  <section id="chart">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Straight off your cleaning cadence table</p>
+        <h2 style="margin-inline:auto;">The fridge chart, pre-committed</h2>
+        <p>You listed a cadence. I'm signing up for it before I've even moved a box.</p>
+      </div>
+      <div class="chore-table reveal">
+        <div class="chore-row">
+          <span class="chore-row__task">Bathroom</span>
+          <span class="chore-row__freq">Daily</span>
+          <button class="chore-check" aria-pressed="true" aria-label="Commit to bathroom cadence"><i data-lucide="check"></i></button>
+        </div>
+        <div class="chore-row">
+          <span class="chore-row__task">Kitchen counters</span>
+          <span class="chore-row__freq">Daily</span>
+          <button class="chore-check" aria-pressed="true" aria-label="Commit to kitchen counters cadence"><i data-lucide="check"></i></button>
+        </div>
+        <div class="chore-row">
+          <span class="chore-row__task">Bedroom &amp; office</span>
+          <span class="chore-row__freq">Daily</span>
+          <button class="chore-check" aria-pressed="true" aria-label="Commit to bedroom and office cadence"><i data-lucide="check"></i></button>
+        </div>
+        <div class="chore-row">
+          <span class="chore-row__task">Vacuuming</span>
+          <span class="chore-row__freq">Weekly</span>
+          <button class="chore-check" aria-pressed="true" aria-label="Commit to vacuuming cadence"><i data-lucide="check"></i></button>
+        </div>
+        <div class="chore-row">
+          <span class="chore-row__task">Floors</span>
+          <span class="chore-row__freq">Weekly</span>
+          <button class="chore-check" aria-pressed="true" aria-label="Commit to floors cadence"><i data-lucide="check"></i></button>
+        </div>
+        <div class="chore-row">
+          <span class="chore-row__task">Bedding</span>
+          <span class="chore-row__freq">Bi-weekly</span>
+          <button class="chore-check" aria-pressed="true" aria-label="Commit to bedding cadence"><i data-lucide="check"></i></button>
+        </div>
+        <div class="chore-row">
+          <span class="chore-row__task">Towels</span>
+          <span class="chore-row__freq">Bi-weekly</span>
+          <button class="chore-check" aria-pressed="true" aria-label="Commit to towels cadence"><i data-lucide="check"></i></button>
+        </div>
+      </div>
+      <p class="chore-note reveal">Every circle above is clickable, for anyone who wants to double-check my commitment. They all say yes.</p>
+    </div>
+  </section>
+
+  <!-- ============ HOUSE RULES ============ -->
+  <section id="rules" style="background: var(--color-bg-alt); border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Household policies, read in full</p>
+        <h2 style="margin-inline:auto;">The house rules — read and agreed</h2>
+      </div>
+      <div class="policy-list reveal-stagger">
+        <div class="policy-item">
+          <div class="policy-item__check"><i data-lucide="check"></i></div>
+          <div>
+            <div class="policy-item__rule">Kitchen and dishes cleaned promptly</div>
+            <div class="policy-item__note">Deal.</div>
+          </div>
+        </div>
+        <div class="policy-item">
+          <div class="policy-item__check"><i data-lucide="check"></i></div>
+          <div>
+            <div class="policy-item__rule">General cleanliness maintained</div>
+            <div class="policy-item__note">Already building the chart above — see for yourself.</div>
+          </div>
+        </div>
+        <div class="policy-item">
+          <div class="policy-item__check"><i data-lucide="check"></i></div>
+          <div>
+            <div class="policy-item__rule">Trash and recycling handled</div>
+            <div class="policy-item__note">Consider it handled, and sorted correctly.</div>
+          </div>
+        </div>
+        <div class="policy-item">
+          <div class="policy-item__check"><i data-lucide="check"></i></div>
+          <div>
+            <div class="policy-item__rule">Repairs and maintenance reported quickly</div>
+            <div class="policy-item__note">You'll hear from me before you even notice.</div>
+          </div>
+        </div>
+        <div class="policy-item">
+          <div class="policy-item__check"><i data-lucide="check"></i></div>
+          <div>
+            <div class="policy-item__rule">Safety with appliances and open flames</div>
+            <div class="policy-item__note">No unattended candles, promise.</div>
+          </div>
+        </div>
+        <div class="policy-item">
+          <div class="policy-item__check"><i data-lucide="check"></i></div>
+          <div>
+            <div class="policy-item__rule">Guests announced in advance</div>
+            <div class="policy-item__note">Every time, no exceptions.</div>
+          </div>
+        </div>
+        <div class="policy-item">
+          <div class="policy-item__check"><i data-lucide="check"></i></div>
+          <div>
+            <div class="policy-item__rule">No smoking, vaping, or drugs</div>
+            <div class="policy-item__note">Not my thing anyway.</div>
+          </div>
+        </div>
+        <div class="policy-item">
+          <div class="policy-item__check"><i data-lucide="check"></i></div>
+          <div>
+            <div class="policy-item__rule">Pets need prior approval</div>
+            <div class="policy-item__note">Wouldn't dream of surprising you with a puppy. (Yet.)</div>
+          </div>
+        </div>
+        <div class="policy-item policy-item--highlight">
+          <div class="policy-item__check"><i data-lucide="headphones"></i></div>
+          <div>
+            <div class="policy-item__rule">No fiction audiobooks aloud after 9 PM without headphones</div>
+            <div class="policy-item__note">The most specific rule I've ever agreed to, and I love it for that. Headphones, always, after nine.</div>
+          </div>
+        </div>
+        <div class="policy-item">
+          <div class="policy-item__check"><i data-lucide="check"></i></div>
+          <div>
+            <div class="policy-item__rule">Keys and codes not shared</div>
+            <div class="policy-item__note">Your keys stay yours. My lips stay closed.</div>
+          </div>
+        </div>
+        <div class="policy-item">
+          <div class="policy-item__check"><i data-lucide="check"></i></div>
+          <div>
+            <div class="policy-item__rule">Doors and garage kept locked</div>
+            <div class="policy-item__note">Every time, twice-checked.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXCITEMENT METER ============ -->
+  <section id="excitement">
+    <div class="wrap meter-wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Your question, answered honestly</p>
+        <h2 style="margin-inline:auto;">How excited are you, 1–10, to live in this home?</h2>
+      </div>
+      <div class="meter reveal">
+        <svg viewBox="0 0 240 240">
+          <circle class="meter__track" cx="120" cy="120" r="110"></circle>
+          <circle class="meter__fill" cx="120" cy="120" r="110"></circle>
+        </svg>
+        <div class="meter__number">
+          <strong>10</strong>
+          <span>out of 10</span>
+        </div>
+      </div>
+      <p class="meter-caption reveal">Immeasurable, honestly — but the form only goes to ten, so ten it is.</p>
+    </div>
+  </section>
+
+  <!-- ============ COUNTDOWN ============ -->
+  <section style="background: var(--color-bg-alt); border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Requested move-in date: August 29, 2026</p>
+        <h2 style="margin-inline:auto;">Counting down to move-in day</h2>
+      </div>
+      <div class="countdown reveal">
+        <div class="countdown__unit"><strong id="cd-days">00</strong><span>Days</span></div>
+        <div class="countdown__unit"><strong id="cd-hours">00</strong><span>Hours</span></div>
+        <div class="countdown__unit"><strong id="cd-minutes">00</strong><span>Minutes</span></div>
+        <div class="countdown__unit"><strong id="cd-seconds">00</strong><span>Seconds</span></div>
+      </div>
+      <p class="countdown-note reveal" id="countdown-note">Requested date, gladly accepted — no counteroffer needed.</p>
+    </div>
+  </section>
+
+  <!-- ============ DANCE PARTY EASTER EGG ============ -->
+  <section class="celebration">
+    <div class="wrap section-head reveal">
+      <p class="eyebrow">One more thing you didn't ask for</p>
+      <h2 style="margin-inline:auto;">A preview of dance parties to come</h2>
+      <p>Paragraph one mentioned trips, dance parties, and car karaoke. Here's a small demo of the celebration energy you're signing up for.</p>
+      <div style="margin-top: var(--space-32);">
+        <button class="btn btn--primary" id="celebrate-btn"><i data-lucide="party-popper" style="width:18px;height:18px"></i>Start the celebration</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TERMS ============ -->
+  <section id="terms">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">The fine print</p>
+        <h2 style="margin-inline:auto;">Cheerfully accepted, every clause</h2>
+      </div>
+      <div class="terms-list reveal-stagger">
+        <div class="terms-item">
+          <div class="terms-item__label">Rent</div>
+          <div class="terms-item__title">$1,000/month, plus 50% of shared utilities</div>
+          <div class="terms-item__body">Accepted as proposed. No counteroffer — the number was fair the first time I read it.</div>
+        </div>
+        <div class="terms-item">
+          <div class="terms-item__label">Screening tool</div>
+          <div class="terms-item__title">This is preliminary, not an ownership interest</div>
+          <div class="terms-item__body">Understood completely — this website is my answer to a screening form, not a deed.</div>
+        </div>
+        <div class="terms-item">
+          <div class="terms-item__label">Written agreement</div>
+          <div class="terms-item__title">A separate lease/roommate agreement governs the details</div>
+          <div class="terms-item__body">Ready whenever you are — pen in hand.</div>
+        </div>
+        <div class="terms-item">
+          <div class="terms-item__label">Ownership</div>
+          <div class="terms-item__title">The homeowner retains ownership and control</div>
+          <div class="terms-item__body">Naturally. It's your house, and I knew that long before the form told me.</div>
+        </div>
+        <div class="terms-item">
+          <div class="terms-item__label">Modifications</div>
+          <div class="terms-item__title">Prior approval required for anything attached to the property</div>
+          <div class="terms-item__body">Every time — including hanging a single picture frame.</div>
+        </div>
+        <div class="terms-item">
+          <div class="terms-item__label">The romance clause</div>
+          <div class="terms-item__title">Being romantically involved doesn't change the terms of tenancy</div>
+          <div class="terms-item__body">Wouldn't want it any other way. You being both my landlord and my favorite person is a bonus, not a shortcut.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section id="closing" class="closing">
+    <div class="wrap">
+      <div class="section-head reveal" style="max-width:640px;">
+        <p class="eyebrow">Optional final question, answered anyway</p>
+        <h2 style="margin-inline:auto;">Is there anything else you'd like the property manager to know?</h2>
+      </div>
+      <div class="closing-letter reveal">
+        <p>Just this: I know this started as a form, and I know forms exist because good things still deserve structure. I don't take that lightly — the chart, the rules, the rent, all of it. I read every line, and I meant every checkbox.</p>
+        <p>But underneath the spreadsheet logic of it all is the actual thing I'm excited about: waking up in the same home as you, splitting chores and utilities and terrible morning moods, and building the kind of ordinary days that turn into the five-year vision I wrote above. I don't want to just pass your screening. I want to be someone you're glad said yes.</p>
+        <p>So — hire me, or rather, live with me. I'll bring the chore chart, the three weekly meals, the dance moves, and the headphones for after nine.</p>
+        <p class="letter__sig">— Garren</p>
+      </div>
+      <div class="closing-cta">
+        <a href="#hero" class="btn btn--ghost" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to the top</a>
+        <button class="btn btn--primary" id="celebrate-btn-2"><i data-lucide="heart-handshake" style="width:18px;height:18px"></i>One more dance</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Built by Garren, for Chloe — an answer to one Google Form, expanded well beyond its scope.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.lucide) lucide.createIcons();
+    const btn2 = document.getElementById('celebrate-btn-2');
+    const btn1 = document.getElementById('celebrate-btn');
+    if (btn2 && btn1) btn2.addEventListener('click', () => btn1.click());
+  });
+</script>
+</body>
+</html>

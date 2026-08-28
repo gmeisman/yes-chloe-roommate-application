@@ -1,0 +1,83 @@
+/* tokens.css — design system for "Yes, Chloe." */
+:root {
+  /* ---- Color: warm terracotta + cream + ink, sage for household, gold for delight ---- */
+  --color-bg: #faf4ea;
+  --color-bg-alt: #f2e6d5;
+  --color-surface: #fffdf9;
+  --color-ink: #2c1f18;
+  --color-text: #3a2a20;
+  --color-text-muted: #7a6a5c;
+  --color-primary: #c1502f;
+  --color-primary-dark: #9c3d22;
+  --color-primary-tint: #f0d9cd;
+  --color-sage: #6d7a54;
+  --color-sage-tint: #e4e8d6;
+  --color-gold: #c98a2c;
+  --color-gold-tint: #f4e2bd;
+  --color-line: #e4d4bf;
+  --color-shadow: 34 22 14;
+
+  /* ---- Dark mode overrides applied via [data-theme="dark"] ---- */
+
+  /* ---- Type scale (fluid, clamp-based) ---- */
+  --text-xs: clamp(0.72rem, 0.69rem + 0.15vw, 0.8rem);
+  --text-sm: clamp(0.84rem, 0.8rem + 0.18vw, 0.94rem);
+  --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
+  --text-lg: clamp(1.15rem, 1.08rem + 0.32vw, 1.35rem);
+  --text-xl: clamp(1.35rem, 1.22rem + 0.6vw, 1.75rem);
+  --text-2xl: clamp(1.7rem, 1.5rem + 1vw, 2.4rem);
+  --text-3xl: clamp(2.2rem, 1.85rem + 1.6vw, 3.4rem);
+  --text-hero: clamp(2.8rem, 2.1rem + 3.2vw, 5.6rem);
+
+  /* ---- Spacing scale ---- */
+  --space-2: 0.125rem;
+  --space-4: 0.25rem;
+  --space-8: 0.5rem;
+  --space-12: 0.75rem;
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-48: 3rem;
+  --space-64: 4rem;
+  --space-96: 6rem;
+  --space-128: 8rem;
+
+  /* ---- Radius ---- */
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+
+  /* ---- Motion ---- */
+  --transition-interactive: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.25, 0.8, 0.4, 1);
+
+  /* ---- Fonts ---- */
+  --font-display: 'Fraunces', 'Georgia', serif;
+  --font-body: 'General Sans', 'Inter', sans-serif;
+  --font-hand: 'Caveat', cursive;
+
+  /* ---- Shadows ---- */
+  --shadow-sm: 0 1px 2px rgb(var(--color-shadow) / 0.08);
+  --shadow-md: 0 8px 24px -8px rgb(var(--color-shadow) / 0.18);
+  --shadow-lg: 0 24px 60px -20px rgb(var(--color-shadow) / 0.28);
+}
+
+[data-theme='dark'] {
+  --color-bg: #211710;
+  --color-bg-alt: #2b1e15;
+  --color-surface: #2c1f17;
+  --color-ink: #f3e6d6;
+  --color-text: #ecdcc9;
+  --color-text-muted: #b39d87;
+  --color-primary: #e2794f;
+  --color-primary-dark: #f0987078;
+  --color-primary-tint: #46271a;
+  --color-sage: #a3b17f;
+  --color-sage-tint: #333b26;
+  --color-gold: #e0aa54;
+  --color-gold-tint: #40320f;
+  --color-line: #43331f;
+  --color-shadow: 0 0 0;
+}
